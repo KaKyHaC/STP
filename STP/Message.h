@@ -9,16 +9,17 @@ __interface IReceivable
 
 class Message
 {
-	
+	const int Id;
 	int totalCost;
 public:
-	const int Id;
+	
 
 	Message(int id);
 	~Message();
 
 	
-	virtual void addCost(int cost) ;
-	virtual int getCost() ;
+	 void addCost(int cost)inline;
+	 int getCost()inline;
+	 int getID()inline {return Id; };
 };
 
