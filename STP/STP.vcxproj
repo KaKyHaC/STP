@@ -143,6 +143,7 @@
     <ClInclude Include="Element.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="Port.h" />
+    <ClInclude Include="STP.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ElementImpl.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="Port.cpp" />
+    <ClCompile Include="STP.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

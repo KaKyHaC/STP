@@ -39,6 +39,9 @@
     <ClInclude Include="ElementImpl.h">
       <Filter>Заголовочные файлы\GeneralElements</Filter>
     </ClInclude>
+    <ClInclude Include="STP.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -55,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="ElementImpl.cpp">
       <Filter>Файлы исходного кода\GeneralElements</Filter>
+    </ClCompile>
+    <ClCompile Include="STP.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
