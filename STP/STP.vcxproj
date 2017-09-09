@@ -139,13 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Bridge.h" />
+    <ClInclude Include="ElementImpl.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="Port.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bridge.cpp" />
+    <ClCompile Include="ElementImpl.cpp" />
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Message.cpp" />

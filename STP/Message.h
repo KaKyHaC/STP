@@ -1,12 +1,6 @@
 #pragma once
 
 
-__interface IReceivable
-{
-	bool onMessageReceive(Message* m, IReceivable* author);
-	bool sendMessage(Message* m, IReceivable* author);
-};
-
 class Message
 {
 	const int Id;
@@ -15,11 +9,19 @@ public:
 	
 
 	Message(int id);
-	~Message();
+	Message(int rootId, int costToRoot);
+	
 
 	
-	 void addCost(int cost)inline;
-	 int getCost()inline;
-	 int getID()inline {return Id; };
+	inline void addCost(int cost){totalCost += cost; }
+	inline int getCost(){return totalCost; }
+	inline int getID() {return Id; }
 };
+
+__interface IReceivable
+{
+	bool onMessageReceive(Message* m, IReceivable* author);
+	bool sendMessage(Message* m, IReceivable* author);
+};
+
 

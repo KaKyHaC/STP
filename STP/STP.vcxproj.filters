@@ -36,7 +36,7 @@
     <ClInclude Include="Port.h">
       <Filter>Заголовочные файлы\BaseElements</Filter>
     </ClInclude>
-    <ClInclude Include="Bridge.h">
+    <ClInclude Include="ElementImpl.h">
       <Filter>Заголовочные файлы\GeneralElements</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,7 +53,7 @@
     <ClCompile Include="Port.cpp">
       <Filter>Файлы исходного кода\BaseElements</Filter>
     </ClCompile>
-    <ClCompile Include="Bridge.cpp">
+    <ClCompile Include="ElementImpl.cpp">
       <Filter>Файлы исходного кода\GeneralElements</Filter>
     </ClCompile>
   </ItemGroup>
