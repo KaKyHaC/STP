@@ -2,10 +2,10 @@
 
 
 
-Message::Message()
+Message::Message(int id):Id(id)
 {
+	totalCost = 0;
 }
-
 
 Message::~Message()
 {
@@ -13,9 +13,10 @@ Message::~Message()
 
 void Message::addCost(int cost)
 {
+	totalCost += cost;
 }
 
 int Message::getCost()
 {
-	return 0;
+	return totalCost;
 }

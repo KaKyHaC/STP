@@ -1,17 +1,6 @@
 #pragma once
+#include "Message.h"
 
-__interface ICostable
-{
-	void addCost(int cost);
-	int getCost();
-};
-__interface MarkerPortMessage :public ICostable {};
-
-__interface IReceivable
-{
-	bool onMessageReceive(MarkerPortMessage* m,IReceivable* author);
-	bool sendMessage(MarkerPortMessage* m, IReceivable* author);
-};
 class Port :public IReceivable
 {
 public:
@@ -28,7 +17,6 @@ private:
 	Port *port;
 	int cost;
 public:
-	Port() {};
 	Port(int cost,IReceivable* element,Port* connection);
 	Port(int cost,IReceivable* element);
 
@@ -37,9 +25,9 @@ public:
 
 
 	// Унаследовано через IReceivable
-	virtual bool onMessageReceive(MarkerPortMessage * m, IReceivable * author) override;
+	virtual bool onMessageReceive(Message * m, IReceivable * author) override;
 
-	virtual bool sendMessage(MarkerPortMessage *m, IReceivable * author) override;
+	virtual bool sendMessage(Message *m, IReceivable * author) override;
 
 };
 
