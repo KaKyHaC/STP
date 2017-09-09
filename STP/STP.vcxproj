@@ -139,14 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bridge.h" />
     <ClInclude Include="Element.h" />
-    <ClInclude Include="LAN.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="Port.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bridge.cpp" />
     <ClCompile Include="Element.cpp" />
-    <ClCompile Include="LAN.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="Port.cpp" />

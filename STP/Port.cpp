@@ -40,7 +40,7 @@ bool Port::setStatus(Status s)
 	return true;
 }
 
-bool Port::onMessageReceive(MarkerPortMessage * m, IReceivable * author)
+bool Port::onMessageReceive(Message * m, IReceivable * author)
 {
 	if(element!=null)
 		if(status==Status::Default||status==Status::RootPort )
@@ -48,7 +48,7 @@ bool Port::onMessageReceive(MarkerPortMessage * m, IReceivable * author)
 	return false;
 }
 
-bool Port::sendMessage(MarkerPortMessage *m, IReceivable * author)
+bool Port::sendMessage(Message *m, IReceivable * author)
 {
 	if(port!=null)
 		if(status==Default||status==Status::DesignatedPort)

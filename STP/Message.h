@@ -1,20 +1,24 @@
 #pragma once
-#include"Port.h"
+
+
 __interface IReceivable
 {
 	bool onMessageReceive(Message* m, IReceivable* author);
 	bool sendMessage(Message* m, IReceivable* author);
 };
 
-class Message:public MarkerPortMessage
+class Message
 {
-
+	
+	int totalCost;
 public:
-	Message();
+	const int Id;
+
+	Message(int id);
 	~Message();
 
-	// Унаследовано через MarkerPortMessage
-	virtual void addCost(int cost) override;
-	virtual int getCost() override;
+	
+	virtual void addCost(int cost) ;
+	virtual int getCost() ;
 };
 
