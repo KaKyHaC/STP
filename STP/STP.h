@@ -18,6 +18,9 @@ public:
 
 	int sizeOfBridges();
 	ElementImpl* getBridgeAt(int i);
+	ElementImpl* getElementById(int id);
+
 	int getMaxCostToRoot();
+
 };
 

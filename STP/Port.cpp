@@ -36,6 +36,8 @@ bool Port::setStatus(Status s)
 		port->status = Status::DesignatedPort;
 	else if (s == Status::DesignatedPort)
 		port->status = Status::RootPort;
+	else if (s == Status::Default)
+		port->status = Status::Default;
 
 	return true;
 }

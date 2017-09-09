@@ -29,6 +29,6 @@ public:
 private:
 
 	void tryChangeRootParam(Message *m, IReceivable* author );
-
+	bool tryChangeRootPort(IReceivable* newRootPort);
 };
 

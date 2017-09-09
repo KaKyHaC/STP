@@ -40,11 +40,35 @@ void ElementImpl::tryChangeRootParam(Message * m, IReceivable* author)
 	if (id == rootParam.rootId) {
 		if (cost < rootParam.costToRoot) {
 			rootParam.costToRoot = cost;
-			rootParam.portToRoot = author;
+			tryChangeRootPort(author);
 		}
 	}else if (id < rootParam.rootId) {
 		rootParam.rootId = id;
 		rootParam.costToRoot = cost;
-		rootParam.portToRoot = author;
+		tryChangeRootPort(author);
 	}
 }
+
+bool ElementImpl::tryChangeRootPort(IReceivable * newRootPort)
+{
+	if (rootParam.portToRoot != nullptr) {
+		if (rootParam.portToRoot != newRootPort) {
+			for (auto p : ports) {
+				if (p == rootParam.portToRoot) {
+					p->setStatus(Port::Status::Default);
+					break;
+				}
+			}
+		}
+	}
+	rootParam.portToRoot = newRootPort;
+	for (auto p : ports) {
+		if (p == rootParam.portToRoot) {
+			p->setStatus(Port::Status::RootPort);
+			break;
+		}
+	}
+	return true;
+}
+
+
