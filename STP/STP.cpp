@@ -36,6 +36,35 @@ bool STP::createLAN(int id)
 	return true;
 }
 
+bool STP::connectElements(int id1, int id2, int cost)
+{
+	ElementImpl* e1 = getElementById(id1);
+	ElementImpl* e2 = getElementById(id2);
+
+	if (e1 == nullptr || e2 == nullptr)
+		return false;
+
+	Port* p1 = e1->createPort(cost);
+	Port* p2 = e2->createPort(cost);
+
+	if (p1 == nullptr || p2 == nullptr)
+		return false;
+
+	p1->connectTo(p2);
+	return true;
+}
+
+bool STP::sendMessageFromAllBridges()
+{
+	for (auto e : bridges) {
+		e->sendMessageToAllFromThis();
+	}
+	for (auto e : bridges) {//TODO try without this code
+		e->sendMessageToAllFromRoot();
+	}
+	return true;
+}
+
 int STP::sizeOfBridges()
 {
 	return bridges.size();
@@ -52,13 +81,24 @@ ElementImpl * STP::getBridgeAt(int i)
 ElementImpl * STP::getElementById(int id)
 {
 	for (auto e : bridges) {
-		if (e->getMyID == id)
+		if (e->getMyID() == id)
 			return e;
 	}
 	for (auto e : lans) {
-		if (e->getMyID == id)
+		if (e->getMyID() == id)
 			return e;
 	}
 	return nullptr;
+}
+
+int STP::getMaxCostToRoot()
+{
+	int max=0;
+	for (auto p : bridges) {
+		int cost = p->getCostToRoot();
+		if (cost > max)
+			max = cost;
+	}
+	return max;
 }
 
