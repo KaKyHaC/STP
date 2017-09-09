@@ -10,7 +10,7 @@ __interface MarkerPortMessage :public ICostable {};
 __interface IReceivable
 {
 	bool onMessageReceive(MarkerPortMessage* m,IReceivable* author);
-	bool sendMessage(MarkerPortMessage* , IReceivable* author);
+	bool sendMessage(MarkerPortMessage* m, IReceivable* author);
 };
 class Port :public IReceivable
 {

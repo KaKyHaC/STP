@@ -1,5 +1,6 @@
 #pragma once
 #include "Port.h"
+#include"Message.h"
 #include<vector>
 class Element:public IReceivable
 {
@@ -8,7 +9,7 @@ public:
 	Element() ;
 	~Element();
 
-	bool createPort(int cost);
+	Port* createPort(int cost);
 	int getPortCount();
 	Port* getPortAt(int i);
 };

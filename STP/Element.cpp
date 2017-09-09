@@ -16,11 +16,11 @@ Element::~Element()
 	ports.clear();
 }
 
-bool Element::createPort(int cost)
+Port* Element::createPort(int cost)
 {
 	Port* port =new Port(cost, this);
 	ports.push_back(port);
-	return true;
+	return port;
 }
 
 int Element::getPortCount()
@@ -30,7 +30,7 @@ int Element::getPortCount()
 
 Port * Element::getPortAt(int i)
 {
-	if(ports.size()<i)
+	if(i>=ports.size())
 		return nullptr;
 	Port* res = ports[i];
 	return res;

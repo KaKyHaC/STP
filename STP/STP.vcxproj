@@ -140,11 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Element.h" />
+    <ClInclude Include="LAN.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="Port.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Element.cpp" />
+    <ClCompile Include="LAN.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="Port.cpp" />
