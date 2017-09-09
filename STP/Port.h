@@ -1,4 +1,5 @@
 #pragma once
+#include "Message.h"
 
 __interface ICostable
 {
@@ -7,11 +8,7 @@ __interface ICostable
 };
 __interface MarkerPortMessage :public ICostable {};
 
-__interface IReceivable
-{
-	bool onMessageReceive(MarkerPortMessage* m,IReceivable* author);
-	bool sendMessage(MarkerPortMessage* m, IReceivable* author);
-};
+
 class Port :public IReceivable
 {
 public:

@@ -1,5 +1,11 @@
 #pragma once
 #include"Port.h"
+__interface IReceivable
+{
+	bool onMessageReceive(Message* m, IReceivable* author);
+	bool sendMessage(Message* m, IReceivable* author);
+};
+
 class Message:public MarkerPortMessage
 {
 
