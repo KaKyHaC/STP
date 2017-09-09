@@ -2,25 +2,27 @@
 
 void ElementImpl::sendMessageToAllFromThis()
 {
-	Message m = Message(myId);
 	for (auto p : ports) {
+		Message m = Message(myId);
 		p->sendMessage(&m,this);
 	}
 }
 
 void ElementImpl::sendMessageToAllFromRoot()
 {
-	Message m = Message(rootParam.rootId,rootParam.costToRoot);
 	for (auto p : ports) {
-		if(p!=rootParam.portToRoot)
+		if (p != rootParam.portToRoot)
+		{
+			Message m = Message(rootParam.rootId, rootParam.costToRoot);
 			p->sendMessage(&m, this);
+		}
 	}
 }
 
 bool ElementImpl::onMessageReceive(Message * m, IReceivable * author)
 {
 	tryChangeRootParam(m, author);
-	sendMessageToAllFromRoot();
+	//sendMessageToAllFromRoot();
 	return true;
 }
 
@@ -41,11 +43,13 @@ void ElementImpl::tryChangeRootParam(Message * m, IReceivable* author)
 		if (cost < rootParam.costToRoot) {
 			rootParam.costToRoot = cost;
 			tryChangeRootPort(author);
+			sendMessageToAllFromRoot();//new
 		}
 	}else if (id < rootParam.rootId) {
 		rootParam.rootId = id;
 		rootParam.costToRoot = cost;
 		tryChangeRootPort(author);
+		sendMessageToAllFromRoot();//new 
 	}
 }
 

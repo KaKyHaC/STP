@@ -7,7 +7,7 @@ Port::Port(int cost, IReceivable * element, Port * connection)
 {
 	this->cost = cost;
 	this->element = element;
-	this->port = port;
+	this->port = connection;
 	this->status = Default;
 }
 
@@ -15,30 +15,34 @@ Port::Port(int cost, IReceivable * element)
 {
 	this->cost = cost;
 	this->element = element;
+	this->port = null;
 	this->status = Status::NondesignatedPort;
 }
 
 bool Port::connectTo(Port * port)
 {
-	if(port!=null)
+	if(port==null)
 		return false;
 
 	this->port = port;
 	port->port = this;
+
+	setStatus(Default);
+
 	return true;
 }
 
 bool Port::setStatus(Status s)
 {
 	this->status = s;
-
-	if (s == Status::RootPort)
-		port->status = Status::DesignatedPort;
-	else if (s == Status::DesignatedPort)
-		port->status = Status::RootPort;
-	else if (s == Status::Default)
-		port->status = Status::Default;
-
+	if (port != null) {
+		if (s == Status::RootPort)
+			port->status = Status::DesignatedPort;
+		else if (s == Status::DesignatedPort)
+			port->status = Status::RootPort;
+		else if (s == Status::Default)
+			port->status = Status::Default;
+	}
 	return true;
 }
 
@@ -53,8 +57,11 @@ bool Port::onMessageReceive(Message * m, IReceivable * author)
 bool Port::sendMessage(Message *m, IReceivable * author)
 {
 	if(port!=null)
-		if(status==Default||status==Status::DesignatedPort)
-	m->addCost(cost);
-	return port->onMessageReceive(m, this);
+		if (status == Default || status == Status::DesignatedPort)
+		{
+			m->addCost(cost);
+			return port->onMessageReceive(m, this);
+		}
+	return false;
 }
 #undef null
