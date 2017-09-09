@@ -28,6 +28,7 @@ private:
 	Port *port;
 	int cost;
 public:
+	Port() {};
 	Port(int cost,IReceivable* element,Port* connection);
 	Port(int cost,IReceivable* element);
 
