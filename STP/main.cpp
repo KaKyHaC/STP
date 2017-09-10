@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
 	stp->sendMessageFromAllBridges();
 	std::cout << stp->getInfo();	
 	system("pause");
-	return 0;
+	return 1;
 }
 
 #undef FILE
