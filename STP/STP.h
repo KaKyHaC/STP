@@ -28,7 +28,16 @@ public:
 	*/
 	bool connectElements(String name1, String name2, int cost);
 
+	/**
+	*send Hello BPDU from all bridges to all
+	*in result we have Spanning Tree
+	*/
 	bool sendMessageFromAllBridges();
+
+	/**
+	*send Hello BPDU from smaller id bridge to all
+	*in result we have Spanning Tree
+	*/
 	bool sendMessageFromRootBridge();
 
 	int sizeOfBridges();
