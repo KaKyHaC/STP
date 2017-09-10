@@ -153,6 +153,8 @@
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="Port.cpp" />
     <ClCompile Include="STP.cpp" />
+    <ClCompile Include="STPfromInput.cpp" />
+    <ClCompile Include="STPfromInput.h" />
     <ClCompile Include="TextParserSTP .cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
