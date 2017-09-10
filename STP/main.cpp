@@ -11,6 +11,8 @@ void main() {
 	parser->parse();
 	STP*stp = parser->getSTP();
 	stp->sendMessageFromAllBridges();
-	std::cout << stp->getMaxCostToRootFromBridge();
+	std::cout << stp->getInfo();
+
+	
 	system("pause");
 }

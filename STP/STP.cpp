@@ -110,5 +110,32 @@ int STP::getMaxCostToRootFromBridge()
 	return max;
 }
 
+std::string STP::getInfo()
+{
+	char* buf = new char;
+	std::string s = "";
+	for (auto e : bridges) {
+		s += "bridge: ";
+		s += e->getName();
+		s+=" cost=";
+		s += itoa(e->getCostToRoot(),buf,10);
+		s+="\n";
+	}
+	s += '\n';
+	for (auto e : lans) {
+		s += "LAN: ";
+		s += e->getName();
+		s += " cost=";
+		s += itoa(e->getCostToRoot(), buf, 10);
+		s += "\n";
+	}
+	s += "\n\n max cost to root from bridge= ";
+	s+=itoa(getMaxCostToRootFromBridge(), buf, 10);
+	s += "\n\n";
+
+	//delete buf;
+	return s;
+}
+
 
 

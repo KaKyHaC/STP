@@ -78,7 +78,7 @@ String TextParserSTP::getBridgeName(String s)
 	int pos = s.find(b);
 	for (int i = pos + b.length(); i < s.length(); i++) {
 		char c = s.at(i);
-		if (c != ' '&&c != '['&&c != ']'&&c != '=')
+		if (!isSpliter(c))
 			name += c;
 	}
 	return name;
@@ -90,7 +90,7 @@ int TextParserSTP::getId(String s)
 	int pos = s.find(b);
 	for (int i = pos + b.length(); i < s.length(); i++) {
 		char c = s.at(i);
-		if (c != ' '&&c != '['&&c != ']' &&c != '=')
+		if (!isSpliter(c))
 			name += c;
 	}
 	return atoi(name.c_str());
@@ -102,7 +102,7 @@ String TextParserSTP::getLanName(String s)
 	int pos = s.find(b);
 	for (int i = pos + b.length(); i < s.length(); i++) {
 		char c = s.at(i);
-		if (c != ' '&&c != '['&&c != ']' &&c!='=')
+		if (!isSpliter(c))
 			name += c;
 	}
 	return name;
@@ -114,7 +114,7 @@ int TextParserSTP::getCost(String s)
 	int pos = s.find(b);
 	for (int i = pos + b.length(); i < s.length(); i++) {
 		char c = s.at(i);
-		if (c != ' '&&c != '['&&c != ']' &&c != '=')
+		if (!isSpliter(c))
 			name += c;
 	}
 	return atoi(name.c_str());
@@ -130,8 +130,13 @@ bool TextParserSTP::isContain(String s, String compare)
 	bool res = true;
 	for (int i = pos,j=0; i < s.length(); i++,j++) {
 		char c = s.at(i);
-		if (c == ' '&&c== '['&&c == ']'&&c== '=')
+		if (isSpliter(c))
 			return j == compare.length();
 	}
 	return true;
+}
+
+bool TextParserSTP::isSpliter(char c)
+{
+	return c==' '||c=='['||c==']'||c=='='||c=='\r'||c=='\n'||c=='\t';
 }
