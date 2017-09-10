@@ -13,10 +13,24 @@ class TextParserSTP {
 	TextParserSTP(std::ifstream*);
 
 public:
+	~TextParserSTP()
+	{
+		delete stp;
+	}
 	static TextParserSTP* getInstance(String);
 	bool parse();
-	STP* getSTP();
+	inline STP* getSTP() {
+		return stp;
+	};
 
 private :
 	void readText();
+	void createLinc(String bridgeName, int id, String LanName, int cost);
+	void TextParserSTP::processRow(String s, String& bridgeName, int& id, String& LanName, int& cost);
+
+	String getBridgeName(String s);
+	int getId(String s);
+	String getLanName(String s);
+	int getCost(String s);
+	bool isContain(String s, String compare);
 };
