@@ -1,6 +1,9 @@
 #pragma once
 
-
+/**
+* @class Message
+* BPDU message to configure network settings
+*/
 class Message
 {
 	const int Id;

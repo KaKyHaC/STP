@@ -2,6 +2,11 @@
 #include"ElementImpl.h"
 #include<vector>
 #define String std::string
+
+/**
+* @class STP
+* Realization of Spanning Tree Protocol
+*/
 class STP
 {
 	std::vector<ElementImpl*> bridges;
@@ -44,7 +49,12 @@ public:
 	ElementImpl* getBridgeAt(int i);
 	ElementImpl* getElementByName(String name);
 
+
 	int getMaxCostToRootFromBridge();
+
+	/**
+	*@return all information about this ST
+	*/
 	std::string getInfo();
 };
 

@@ -3,6 +3,10 @@
 #include<string>
 #define MAXID 999999
 
+/**
+* @class ElementImpl
+* implementation of an element with the logic of determining the root bridge
+*/
 class ElementImpl:public Element
 {
 	const int Id;
@@ -13,11 +17,18 @@ class ElementImpl:public Element
 		IReceivable* portToRoot;
 	}rootParam;
 public:
+	/**
+	constructor for Bridge
+	*/
 	ElementImpl(std::string name) :Id(MAXID), name(name) {
 		rootParam.rootId = Id;
 		rootParam.costToRoot = 0;
 		rootParam.portToRoot = nullptr;
 	};
+	/**
+	constructor for LAN
+	set max port id
+	*/
 	ElementImpl(std::string name,int id) :Id(id),name(name) {
 		rootParam.rootId = Id;
 		rootParam.costToRoot = 0;

@@ -5,6 +5,12 @@
 #include<vector>
 #define String std::string
 
+
+/**
+* @class TextParserSTP
+* Class for creating a STP implementation from a file
+* @note creation through factory method
+*/
 class TextParserSTP {
 	std::ifstream* in;
 	STP* stp=new STP();
@@ -17,8 +23,18 @@ public:
 	{
 		delete stp;
 	}
+
+	/**
+	*create instance from file
+	*@return nullptr if file can't read
+	*/
 	static TextParserSTP* getInstance(String);
+
+	/**
+	*parse STP from readed file
+	*/
 	bool parse();
+
 	inline STP* getSTP() {
 		return stp;
 	};
