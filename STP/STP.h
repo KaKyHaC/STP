@@ -45,7 +45,7 @@ public:
 	ElementImpl* getElementByName(String name);
 
 	int getMaxCostToRootFromBridge();
-
+	std::string getInfo();
 };
 
 #undef Sting

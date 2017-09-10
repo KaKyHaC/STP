@@ -32,5 +32,7 @@ private :
 	int getId(String s);
 	String getLanName(String s);
 	int getCost(String s);
+
 	bool isContain(String s, String compare);
+	bool isSpliter(char c);
 };
