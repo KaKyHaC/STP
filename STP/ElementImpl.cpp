@@ -3,7 +3,7 @@
 void ElementImpl::sendMessageToAllFromThis()
 {
 	for (auto p : ports) {
-		Message m = Message(myId);
+		Message m = Message(Id);
 		p->sendMessage(&m,this);
 	}
 }
@@ -18,6 +18,8 @@ void ElementImpl::sendMessageToAllFromRoot()
 		}
 	}
 }
+
+
 
 bool ElementImpl::onMessageReceive(Message * m, IReceivable * author)
 {

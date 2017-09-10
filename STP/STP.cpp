@@ -16,30 +16,30 @@ STP::~STP()
 	}
 }
 
-bool STP::createBridge(int id)
+ElementImpl* STP::createBridge(String name,int id)//create 
 {
-	if (getElementById(id)!=nullptr)
-		return false;
+	if (getElementByName(name)!=nullptr)
+		return nullptr;
 
-	ElementImpl* e = new ElementImpl(id);
+	ElementImpl* e = new ElementImpl(name,id);
 	bridges.push_back(e);
-	return true;
+	return e;
 }
 
-bool STP::createLAN(int id)
+ElementImpl* STP::createLAN(String name)
 {
-	if (getElementById(id) != nullptr)
-		return false;
+	if (getElementByName(name) != nullptr)
+		return nullptr;
 
-	ElementImpl* e = new ElementImpl(id);
+	ElementImpl* e = new ElementImpl(name);
 	lans.push_back(e);
-	return true;
+	return e;
 }
 
-bool STP::connectElements(int id1, int id2, int cost)
+bool STP::connectElements(String name1, String name2, int cost)
 {
-	ElementImpl* e1 = getElementById(id1);
-	ElementImpl* e2 = getElementById(id2);
+	ElementImpl* e1 = getElementByName(name1);
+	ElementImpl* e2 = getElementByName(name2);
 
 	if (e1 == nullptr || e2 == nullptr)
 		return false;
@@ -86,14 +86,14 @@ ElementImpl * STP::getBridgeAt(int i)
 	return bridges[i];
 }
 
-ElementImpl * STP::getElementById(int id)
+ElementImpl * STP::getElementByName(String  name)
 {
 	for (auto e : bridges) {
-		if (e->getMyID() == id)
+		if (e->getName() == name)
 			return e;
 	}
 	for (auto e : lans) {
-		if (e->getMyID() == id)
+		if (e->getName() == name)
 			return e;
 	}
 	return nullptr;
@@ -109,4 +109,6 @@ int STP::getMaxCostToRootFromBridge()
 	}
 	return max;
 }
+
+
 

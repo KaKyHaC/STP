@@ -23,7 +23,7 @@ public:
 	bool connectTo(Port* port);
 	bool setStatus(Status s);
 
-
+	IReceivable* getConnectedElement();
 	// Унаследовано через IReceivable
 	virtual bool onMessageReceive(Message * m, IReceivable * author) override;
 

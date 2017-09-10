@@ -46,6 +46,13 @@ bool Port::setStatus(Status s)
 	return true;
 }
 
+IReceivable * Port::getConnectedElement()
+{
+	if(port==nullptr)
+		return nullptr;
+	return port->element;
+}
+
 bool Port::onMessageReceive(Message * m, IReceivable * author)
 {
 	if(element!=null)
