@@ -23,8 +23,9 @@ void main() {
 	assert(stp.connectElements(3, 6, 10));
 	assert(stp.connectElements(3, 5, 10));
 
-	stp.sendMessageFromAllBridges();
-	std::cout << stp.getMaxCostToRoot()<<"- max\n";
+	stp.sendMessageFromRootBridge();
+
+	std::cout << stp.getMaxCostToRootFromBridge()<<"- max\n";
 	for (int i = 1; i < 7; i++) {
 		std::cout << "\nat " <<i;
 		std::cout<<" cost to root=" << stp.getElementById(i)->getCostToRoot();
