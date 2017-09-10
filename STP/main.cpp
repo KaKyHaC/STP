@@ -1,5 +1,6 @@
 #include"STP.h"
 #include"TextParserSTP .h"
+#include"STPfromInput.h"
 #include<assert.h>
 #include<iostream>
 
@@ -12,20 +13,23 @@ int main(int argc, char** argv) {
 	}
 	std::cout << "\n\n";
 
-	if (argc == 2)
+	STP*stp;
+	if (argc > 1) {
 		file = argv[1];
-	else
-		file = FILE;
 
-	TextParserSTP* parser = TextParserSTP::getInstance(file);
+		TextParserSTP* parser = TextParserSTP::getInstance(file);
 
-	if (parser == nullptr) {
-		std::cout << "invalid path: " << file<<'\n';
-		system("pause");
-		return -1;
+		if (parser == nullptr) {
+			std::cout << "invalid path: " << file << '\n';
+			system("pause");
+			return -1;
+		}
+		parser->parse();
+		stp = parser->getSTP();
 	}
-	parser->parse();
-	STP*stp = parser->getSTP();
+	else {
+		stp=STPfromInput::createSTP();
+	}
 	stp->sendMessageFromAllBridges();
 	std::cout << stp->getInfo();	
 	system("pause");
