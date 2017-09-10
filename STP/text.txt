@@ -1,0 +1,43 @@
+[BRIDGE 1]
+BridgeId = 42
+[BRIDGE 1.Port 01]
+PathCost = 10
+ConnectedTo = LAN A
+[BRIDGE 1.Port 02]
+PathCost = 10
+ConnectedTo = LAN B
+[BRIDGE 2]
+BridgeId = 97
+[BRIDGE 2.Port 01]
+PathCost = 05
+ConnectedTo = LAN C
+[BRIDGE 2. Port 02]
+PathCost = 10
+ConnectedTo = LAN A
+[BRIDGE 2. Port 03]
+PathCost = 05
+ConnectedTo = LAN D
+[BRIDGE 3]
+BridgeId = 45
+[BRIDGE 3.Port 01]
+PathCost = 10
+ConnectedTo = LAN B
+[BRIDGE 3.Port 02]
+PathCost = 10
+ConnectedTo = LAN E
+[BRIDGE 4]
+BridgeId = 57
+[BRIDGE 4.Port 01]
+PathCost = 05
+ConnectedTo = LAN B
+[BRIDGE 4.Port 02]
+PathCost = 05
+ConnectedTo = LAN E
+[BRIDGE 5]
+BridgeId = 57
+[BRIDGE 5.Port 01]
+PathCost = 05
+ConnectedTo = LAN A
+[BRIDGE 5.Port 02]
+PathCost = 05
+ConnectedTo = LAN E
