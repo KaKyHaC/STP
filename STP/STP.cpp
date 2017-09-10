@@ -59,9 +59,17 @@ bool STP::sendMessageFromAllBridges()
 	for (auto e : bridges) {
 		e->sendMessageToAllFromThis();
 	}
-	for (auto e : bridges) {//TODO try without this code
-		e->sendMessageToAllFromRoot();
+	return true;
+}
+
+bool STP::sendMessageFromRootBridge()
+{
+	ElementImpl* root = bridges[0];
+	for (auto b : bridges) {
+		if (b->getMyID() < root->getMyID())
+			root = b;
 	}
+	root->sendMessageToAllFromThis();
 	return true;
 }
 
@@ -91,7 +99,7 @@ ElementImpl * STP::getElementById(int id)
 	return nullptr;
 }
 
-int STP::getMaxCostToRoot()
+int STP::getMaxCostToRootFromBridge()
 {
 	int max=0;
 	for (auto p : bridges) {

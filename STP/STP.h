@@ -15,12 +15,13 @@ public:
 	bool connectElements(int id1, int id2, int cost);
 
 	bool sendMessageFromAllBridges();
+	bool sendMessageFromRootBridge();
 
 	int sizeOfBridges();
 	ElementImpl* getBridgeAt(int i);
 	ElementImpl* getElementById(int id);
 
-	int getMaxCostToRoot();
+	int getMaxCostToRootFromBridge();
 
 };
 
