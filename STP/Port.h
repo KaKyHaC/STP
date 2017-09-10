@@ -1,6 +1,10 @@
 #pragma once
 #include "Message.h"
 
+/**
+* @class Port
+* port for the connection between the base elements
+*/
 class Port :public IReceivable
 {
 public:

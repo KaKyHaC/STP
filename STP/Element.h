@@ -3,7 +3,10 @@
 #include"Port.h"
 #include<vector>
 
-
+/**
+* @class Element
+* the base element of ST
+* */
 class Element:public IReceivable
 {
 protected:
