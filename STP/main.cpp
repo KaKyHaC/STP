@@ -9,4 +9,8 @@ void main() {
 	out.close();
 	TextParserSTP* parser = TextParserSTP::getInstance("text.txt");
 	parser->parse();
+	STP*stp = parser->getSTP();
+	stp->sendMessageFromAllBridges();
+	std::cout << stp->getMaxCostToRootFromBridge();
+	system("pause");
 }
