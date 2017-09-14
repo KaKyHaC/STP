@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
 		stp = parser->getSTP();
 	}
 	else {
-		stp=STPfromInput::createSTP();
+		stp = STPfromInput().getSTP();
 	}
 	stp->sendMessageFromAllBridges();
 	std::cout << stp->getInfo();	

@@ -1,8 +1,8 @@
 #include "STPfromInput.h"
 
-STP * STPfromInput::createSTP()
+STP * STPfromInput::initSTP()
 {
-	STP* stp = new STP();
+	stp = new STP();
 	char* s = new char;
 	std::string bridgeName;
 	int val;
