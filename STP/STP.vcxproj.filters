@@ -25,6 +25,12 @@
     <Filter Include="Файлы исходного кода\GeneralElements">
       <UniqueIdentifier>{4012dd83-244a-4973-8f2a-be1447163f22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\Utils">
+      <UniqueIdentifier>{4c521d6b-058d-4728-bac1-e3e544e93a27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Utils">
+      <UniqueIdentifier>{aa999107-f012-4955-a19f-6a484e996373}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Element.h">
@@ -42,8 +48,11 @@
     <ClInclude Include="STP.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="IReceivable.h">
+      <Filter>Заголовочные файлы\BaseElements</Filter>
+    </ClInclude>
     <ClInclude Include="TextParserSTP .h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,14 +74,14 @@
     <ClCompile Include="STP.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="TextParserSTP .cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="STPfromInput.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Utils</Filter>
     </ClCompile>
     <ClCompile Include="STPfromInput.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="TextParserSTP .cpp">
+      <Filter>Файлы исходного кода\Utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

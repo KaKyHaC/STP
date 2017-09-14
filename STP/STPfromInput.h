@@ -3,6 +3,10 @@
 #include <iostream>
 
 class STPfromInput {
+	STP* stp=initSTP();
+
+
+	STP* initSTP();
 public:
-	static STP* createSTP();
+	inline STP* getSTP() { return stp; }
 };

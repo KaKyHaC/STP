@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="ElementImpl.h" />
     <ClInclude Include="Element.h" />
+    <ClInclude Include="IReceivable.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="Port.h" />
     <ClInclude Include="STP.h" />
